@@ -1,0 +1,13 @@
+{
+	"sellerdetails" : {
+		"Name":                      "Name",
+		"Category":					 "Category",
+		"TabProduct":			     "Products",
+		"TabTop10":					 "Top 10",
+		"Messages" : {
+			"LoadFailed":            "Failed to load the list of products",
+			"SaveSucceeded":         "The product has been added successfully",
+			"SaveFailed":            "Unfortunately we could not add a new product"
+		}
+	}
+}

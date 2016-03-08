@@ -21,6 +21,10 @@
     "angular-translate": "~2.10.0",
     "angular-toastr": "~1.7.0",
     "angular-mocks": "~1.5.0",
-    "lodash": "~4.5.1"
+    "lodash": "~4.5.1",
+    "angular-material": "^1.0.6",
+    "angular-translate-loader-static-files": "^2.10.0",
+    "components-font-awesome": "^4.5.0",
+    "jquery": "^2.2.1"
   }
 }

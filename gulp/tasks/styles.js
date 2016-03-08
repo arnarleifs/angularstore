@@ -23,7 +23,7 @@ gulp.task("styles-custom", (cb) => {
 });
 
 gulp.task("styles-vendor", (cb) => {
-	gulp.src(bower(["**/*.css", "!bootstrap/**/*.css"]))
+	gulp.src(bower(["**/*.css"]))
 		.pipe(concat("vendor.css"))
 		.pipe(gif(config.prod, minifyCss()))
 		.pipe(gulp.dest(config.paths.target + "/styles"))
