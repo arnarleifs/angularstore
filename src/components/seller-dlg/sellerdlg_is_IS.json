@@ -1,0 +1,8 @@
+{
+	"sellerdlg" : {
+		"Title":    "Bæta við nýjum seljanda",
+		"Name":     "Nafn",
+		"Category":     "Flokkur",
+		"ImagePath":    "Slóð á mynd"
+	}
+}

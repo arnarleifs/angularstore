@@ -10,6 +10,12 @@
 			"SaveFailed": "Því miður tókst ekki að bæta við nýrri vöru"
 		}
 	},
+	"sellerdlg": {
+		"Title": "Bæta við nýjum seljanda",
+		"Name": "Nafn",
+		"Category": "Flokkur",
+		"ImagePath": "Slóð á mynd"
+	},
 	"sellers": {
 		"Title": "Seljendur",
 		"Name": "Nafn",
@@ -21,5 +27,9 @@
 			"SaveFailed": "Því miður tókst ekki að bæta við nýjum seljanda"
 		},
 		"SearchText": "Leitaðu af seljanda.."
+	},
+	"shared": {
+		"AddButton": "Bæta við",
+		"CancelButton": "Loka"
 	}
 }

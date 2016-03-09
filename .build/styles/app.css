@@ -76,6 +76,9 @@ body {
   cursor: pointer;
   cursor: hand;
 }
+md-dialog {
+  width: 50em;
+}
 
 .Sellers {
   /* TODO: add any Sellers-specific styles here! */

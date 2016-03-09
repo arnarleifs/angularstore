@@ -1,0 +1,8 @@
+{
+	"sellerdlg" : {
+		"Title":        "Add new seller",
+		"Name":         "Name",
+		"Category":     "Category",
+		"ImagePath":    "Path to image"
+	}
+}

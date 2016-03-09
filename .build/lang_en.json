@@ -10,6 +10,12 @@
 			"SaveFailed": "Unfortunately we could not add a new product"
 		}
 	},
+	"sellerdlg": {
+		"Title": "Add new seller",
+		"Name": "Name",
+		"Category": "Category",
+		"ImagePath": "Path to image"
+	},
 	"sellers": {
 		"Title": "Sellers List",
 		"Name": "Name",
@@ -21,5 +27,9 @@
 			"SaveFailed": "Unfortunately we could not add a new seller"
 		},
 		"SearchText": "Search for seller.."
+	},
+	"shared": {
+		"AddButton": "Add",
+		"CancelButton": "Cancel"
 	}
 }

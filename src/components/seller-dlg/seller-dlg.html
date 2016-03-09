@@ -1,0 +1,47 @@
+<md-dialog aria-label="SellerAddDialog" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{'sellerdlg.Title' | translate}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="close()">
+                    <md-icon aria-label="Close dialog"><i class="fa fa-times"></i></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <form>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>{{'sellerdlg.Name' | translate}}</label>
+                            <input ng-model="seller.name">
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>{{'sellerdlg.Category' | translate}}</label>
+                            <input ng-model="seller.category">
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm="">
+                            <label>{{'sellerdlg.ImagePath' | translate}}</label>
+                            <input ng-model="user.imagePath">
+                        </md-input-container>
+                    </div>
+                </form>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="close()">
+                {{'shared.CancelButton' | translate}}
+            </md-button>
+            <md-button ng-click="addSeller(newSeller)" style="margin-right:20px;">
+                {{'shared.AddButton' | translate}}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
