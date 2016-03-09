@@ -1,7 +1,7 @@
 "use strict";
 
-angular.module("project3App").controller("MainController", ["$scope", function ($scope) {
+angular.module("project3App").controller("MainController", ["$rootScope", "$scope", "$translate", function ($rootScope, $scope, $translate) {
 	$scope.changeLanguage = function changeLanguage(selection) {
-		// TODO: Set the translateProvider to change the language
+		$translate.use(selection);
 	};
 }]);

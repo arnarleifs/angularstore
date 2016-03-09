@@ -1,5 +1,76 @@
 "use strict";
 
-describe("SellersController should be unit tested here", function() {
-	// TODO: add beforeEach/describe/it/etc. functions as appropriate!
+describe("SellersController", function() {
+    // Inject the module to the test code
+    beforeEach(module("project3App"));
+
+    var SellersController, scope;
+
+    var mockSellerList = [{
+        id: 1,
+        name: "Hannyrðaþjónusta Hannesar",
+        category: "Fatnaður",
+        imagePath: "http://i.imgur.com/OYVpe2W.jpg?fb"
+    }];
+
+    var mockHttpPromise = function(condition, data) {
+        return {
+            success: function(fn) {
+                if (condition) {
+                    fn(data);
+                }
+                return {
+                    error: function (f) {
+                        if (!condition) {
+                            f();
+                        }
+                    }
+                };
+            }
+        };
+    };
+
+    var mockResourceFalse = {
+        getSellers: function () {
+            return mockHttpPromise(false, null);
+        }
+    };
+
+    var mockResourceTrue = {
+        getSellers: function () {
+            return mockHttpPromise(true, mockSellerList);
+        }
+    };
+
+    describe("List of sellers failed", function () {
+        beforeEach(inject(function ($rootScope, $controller) {
+            scope = $rootScope.$new();
+            SellersController = $controller('SellersController', {
+                $scope: scope,
+                AppResource: mockResourceFalse
+            });
+        }));
+
+        // Unit tests here
+        it('should show error message on main site', function() {
+            expect(scope.loadingListError).toBe(true);
+            expect(scope.listOfSellers).toEqual([]);
+        });
+    });
+
+    describe("List of sellers succeeded", function () {
+        beforeEach(inject(function ($rootScope, $controller) {
+            scope = $rootScope.$new();
+            SellersController = $controller('SellersController', {
+                $scope: scope,
+                AppResource: mockResourceTrue
+            });
+        }));
+        
+        // Unit tests here
+        it('should show list of sellers on the main site', function() {
+            expect(scope.loadingListError).toBe(false);
+            expect(scope.listOfSellers).not.toEqual([]);
+        });
+    });
 });

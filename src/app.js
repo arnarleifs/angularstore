@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("project3App", ["ngRoute", "ui.bootstrap", "sharedServices", "ngMaterial", "ngMessages", "pascalprecht.translate"])
+angular.module("project3App", ["ngRoute", "ui.bootstrap", "ngMaterial", "ngMessages", "pascalprecht.translate"])
 .config(function ($routeProvider, $translateProvider) {
 	$routeProvider.when("/", {
 		controller: "SellersController",

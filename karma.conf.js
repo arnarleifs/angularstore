@@ -8,9 +8,9 @@ module.exports = function(config) {
     basePath: '',
 
     plugins : [
-        'karma-chrome-launcher',
-        'karma-jasmine',
-        'karma-coverage'
+      'karma-jasmine',
+      'karma-coverage',
+      'karma-chrome-launcher'
     ],
 
     // frameworks to use
@@ -23,12 +23,15 @@ module.exports = function(config) {
       'src/vendor/jquery/dist/jquery.js',
       'src/vendor/angular/angular.js',
       'src/vendor/angular-route/angular-route.js',
+      'src/vendor/angular-animate/angular-animate.js',
       'src/vendor/angular-bootstrap/ui-bootstrap-tpls.js',
       'src/vendor/angular-toastr/dist/angular-toastr.js',
       'src/vendor/angular-translate/angular-translate.js',
+      'src/vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
       'src/vendor/angular-mocks/angular-mocks.js',
-      'src/shared/app.js',
-      'src/shared/**/*.js',
+      'src/vendor/angular-aria/angular-aria.js',
+      'src/vendor/angular-material/angular-material.js',
+      'src/vendor/angular-messages/angular-messages.js',
       'src/app.js',
       'src/components/**/*.js'
     ],
@@ -43,7 +46,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/app.js': 'coverage',
+      'src/*/app.js': 'coverage',
       'src/components/**/*.js': 'coverage'
     },
 
