@@ -3,6 +3,12 @@
 		"Title":    "Bæta við nýjum seljanda",
 		"Name":     "Nafn",
 		"Category":     "Flokkur",
-		"ImagePath":    "Slóð á mynd"
+		"ImagePath":    "Slóð á mynd",
+		"ErrorMsg": {
+			"NameMinLength":     "Lágmarks lengd af nafni eru 2 stafir",
+			"NameMaxLength":     "Hámarks lengd af nafni eru 32 stafir",
+			"CategoryRequired":  "Nauðsynlegt er að velja einn flokk",
+			"ImageRequired":    "Nauðsynlegt er að hafa slóð af mynd"
+		}
 	}
 }
