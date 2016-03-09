@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("project3App").controller("SellersController", ["$scope", "AppResource", "$mdDialog", function SellersController($scope, AppResource, $mdDialog) {
+angular.module("project3App").controller("SellersController", ["$rootScope", "$scope", "AppResource", "$mdDialog", "$mdToast", function SellersController($rootScope, $scope, AppResource, $mdDialog, $mdToast) {
 	// default sorting type for the seller table
 	$scope.sortType = 'name';
 	// default sort order
@@ -22,6 +22,20 @@ angular.module("project3App").controller("SellersController", ["$scope", "AppRes
 			escapeToClose: true
 		});
 	};
+
+	// Listen for new added sellers through the dialog (SellerDialogController)
+	$rootScope.$on('addToSellerList', function (data, newSeller) {
+		AppResource.addSeller(newSeller).success(function (seller) {
+			$mdToast.show({
+				templateUrl: 'components/toasts/add_success_toast.html',
+				parent: angular.element(document.body),
+				hideDelay: 3000,
+				position: 'center'
+			});
+		}).error(function (errorData) {
+			// Show appropriate error message
+		});
+	});
 
 	// Initialize the list of sellers
 	AppResource.getSellers().success(function (data) {

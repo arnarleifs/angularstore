@@ -38,6 +38,7 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="seller in listOfSellers | orderBy:sortType:sortReverse | filter: searchWord">
+				<td hidden="hidden">{{seller.id}}</td>
 				<td>{{seller.name}}</td>
 				<td>{{seller.category}}</td>
 			</tr>

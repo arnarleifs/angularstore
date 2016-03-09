@@ -88,6 +88,8 @@ function AppResource() {
 		};
 	};
 
+	var countingId = 5;
+
 	var mockResource = {
 		// Note: the following properties should NOT be used
 		// in production code, but can be used in unit testing
@@ -110,6 +112,7 @@ function AppResource() {
 		},
 
 		addSeller: function addSeller(seller) {
+			seller["id"] = countingId++;
 			if (mockResource.successAddSeller) {
 				mockSellers.push(seller);
 			}

@@ -117,6 +117,8 @@ function AppResource() {
 		};
 	};
 
+	var countingId = 5;
+
 	var mockResource = {
 		// Note: the following properties should NOT be used
 		// in production code, but can be used in unit testing
@@ -139,6 +141,7 @@ function AppResource() {
 		},
 
 		addSeller: function addSeller(seller) {
+			seller["id"] = countingId++;
 			if (mockResource.successAddSeller) {
 				mockSellers.push(seller);
 			}
@@ -209,13 +212,25 @@ function AppResource() {
 "use strict";
 
 angular.module("project3App").controller("SellerDialogController", ["$rootScope", "$scope", "$mdDialog", function ($rootScope, $scope, $mdDialog) {
+	$scope.seller = {
+		name: "",
+		category: "",
+		imagePath: ""
+	};
+	// Closes the dialog
 	$scope.close = function () {
+		$mdDialog.cancel();
+	};
+	// Sends a request to SellerController to add to it's current list of sellers
+	$scope.addSeller = function addSeller(newSeller) {
+		// If form is valid
+		$rootScope.$emit('addToSellerList', newSeller);
 		$mdDialog.cancel();
 	};
 }]);
 "use strict";
 
-angular.module("project3App").controller("SellersController", ["$scope", "AppResource", "$mdDialog", function SellersController($scope, AppResource, $mdDialog) {
+angular.module("project3App").controller("SellersController", ["$rootScope", "$scope", "AppResource", "$mdDialog", "$mdToast", function SellersController($rootScope, $scope, AppResource, $mdDialog, $mdToast) {
 	// default sorting type for the seller table
 	$scope.sortType = 'name';
 	// default sort order
@@ -237,6 +252,20 @@ angular.module("project3App").controller("SellersController", ["$scope", "AppRes
 			escapeToClose: true
 		});
 	};
+
+	// Listen for new added sellers through the dialog (SellerDialogController)
+	$rootScope.$on('addToSellerList', function (data, newSeller) {
+		AppResource.addSeller(newSeller).success(function (seller) {
+			$mdToast.show({
+				templateUrl: 'components/toasts/add_success_toast.html',
+				parent: angular.element(document.body),
+				hideDelay: 3000,
+				position: 'center'
+			});
+		}).error(function (errorData) {
+			// Show appropriate error message
+		});
+	});
 
 	// Initialize the list of sellers
 	AppResource.getSellers().success(function (data) {

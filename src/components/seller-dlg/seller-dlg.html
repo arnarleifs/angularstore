@@ -28,7 +28,7 @@
                     <div layout-gt-sm="row">
                         <md-input-container class="md-block" flex-gt-sm="">
                             <label>{{'sellerdlg.ImagePath' | translate}}</label>
-                            <input ng-model="user.imagePath">
+                            <input ng-model="seller.imagePath">
                         </md-input-container>
                     </div>
                 </form>
@@ -39,7 +39,7 @@
             <md-button ng-click="close()">
                 {{'shared.CancelButton' | translate}}
             </md-button>
-            <md-button ng-click="addSeller(newSeller)" style="margin-right:20px;">
+            <md-button ng-click="addSeller(seller)" style="margin-right:20px;">
                 {{'shared.AddButton' | translate}}
             </md-button>
         </md-dialog-actions>

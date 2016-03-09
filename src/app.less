@@ -63,3 +63,28 @@ body {
 md-dialog {
 	width: 50em;
 }
+
+@keyframes blinking-success {
+	0% { border: 3px solid green; }
+	25% { border: 3px solid blue; }
+	50% { border: 3px solid red; }
+	75% { border: 3px solid blue; }
+	100% { border: 3px solid green; }
+}
+
+.md-toast-content {
+	-webkit-box-shadow: -2px 0px 30px 1px rgba(0,0,0,0.62);
+	-moz-box-shadow: -2px 0px 30px 1px rgba(0,0,0,0.62);
+	box-shadow: -2px 0px 30px 1px rgba(0,0,0,0.62);
+	background-color: white;
+	border: 3px solid green;
+	color: black;
+	padding: 50px;
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	margin-top: -50px;
+	margin-left: -100px;
+	z-index: 3;
+	animation: blinking-success 3s infinite;
+}
