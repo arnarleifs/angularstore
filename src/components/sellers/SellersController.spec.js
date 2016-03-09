@@ -42,12 +42,20 @@ describe("SellersController", function() {
         }
     };
 
+    var mdDialogMock = {
+        show: function () {
+
+        }
+    };
+
     describe("List of sellers failed", function () {
         beforeEach(inject(function ($rootScope, $controller) {
             scope = $rootScope.$new();
+            spyOn(mdDialogMock, "show");
             SellersController = $controller('SellersController', {
                 $scope: scope,
-                AppResource: mockResourceFalse
+                AppResource: mockResourceFalse,
+                $mdDialog: mdDialogMock
             });
         }));
 
@@ -55,6 +63,11 @@ describe("SellersController", function() {
         it('should show error message on main site', function() {
             expect(scope.loadingListError).toBe(true);
             expect(scope.listOfSellers).toEqual([]);
+        });
+
+        it('should open dialog', function () {
+            scope.openDialog();
+            expect(mdDialogMock.show).toHaveBeenCalled();
         });
     });
 
