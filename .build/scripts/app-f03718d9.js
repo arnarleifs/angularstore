@@ -6,7 +6,8 @@ angular.module("project3App", ["ngRoute", "ui.bootstrap", "ngMaterial", "ngMessa
 		controller: "SellersController",
 		templateUrl: "components/sellers/index.html"
 	})
-	.when("/seller-detail", {
+	.when("/seller-details/:id", {
+		controller: "SellerDetailsController",
 		templateUrl: "components/seller-details/seller-details.html"
 	});
 	
@@ -27,6 +28,51 @@ angular.module("project3App").controller("MainController", ["$rootScope", "$scop
 "use strict";
 
 angular.module("sharedServices", ["toastr"]);
+"use strict";
+
+angular.module("project3App").controller("SellerDetailsController", [ "$scope", "$routeParams", "AppResource", function ($scope, $routeParams, AppResource){
+
+	$scope.seller = { };
+	$scope.errorMessage = "";
+
+	AppResource.getSellerDetails(parseInt($routeParams.id)).success(function (sellerInfo){
+		$scope.seller = sellerInfo;
+		console.log(sellerInfo);
+	}).error(function() {
+		$scope.errorMessage = "An error occurred while retreiving the details about this seller....please try again later";
+		console.log($scope.errorMessage);
+	});
+}]);
+"use strict";
+
+angular.module("project3App").controller("SellerDialogController", ["$rootScope", "$scope", "$mdDialog", function ($rootScope, $scope, $mdDialog) {
+	$scope.seller = {
+		name: "",
+		category: "",
+		imagePath: ""
+	};
+	$scope.categoryList = [
+		"Fatnaður",
+		"Keramik",
+		"Skartgripir",
+		"Matvörur",
+		"Leikföng",
+		"Kvikmyndir",
+		"List",
+		"Snyrtivörur",
+		"Heilsuvörur"
+	];
+	// Closes the dialog
+	$scope.close = function () {
+		$mdDialog.cancel();
+	};
+	// Sends a request to SellerController to add to it's current list of sellers
+	$scope.addSeller = function addSeller(newSeller) {
+		// If form is valid
+		$rootScope.$emit('addToSellerList', newSeller);
+		$mdDialog.cancel();
+	};
+}]);
 "use strict";
 
 /**
@@ -161,10 +207,14 @@ function AppResource() {
 		},
 
 		getSellerDetails: function(id) {
+			console.log("id er: " + id);
 			var seller;
 			for (var i = 0; i < mockSellers.length; ++i) {
+				console.log(mockSellers[i]);
 				if (mockSellers[i].id === id) {
 					seller = mockSellers[i];
+					console.log('found seller!');
+					console.log('seller is:' + seller);
 					break;
 				}
 			}
@@ -209,36 +259,6 @@ function AppResource() {
 
 	return mockResource;
 });
-"use strict";
-
-angular.module("project3App").controller("SellerDialogController", ["$rootScope", "$scope", "$mdDialog", function ($rootScope, $scope, $mdDialog) {
-	$scope.seller = {
-		name: "",
-		category: "",
-		imagePath: ""
-	};
-	$scope.categoryList = [
-		"Fatnaður",
-		"Keramik",
-		"Skartgripir",
-		"Matvörur",
-		"Leikföng",
-		"Kvikmyndir",
-		"List",
-		"Snyrtivörur",
-		"Heilsuvörur"
-	];
-	// Closes the dialog
-	$scope.close = function () {
-		$mdDialog.cancel();
-	};
-	// Sends a request to SellerController to add to it's current list of sellers
-	$scope.addSeller = function addSeller(newSeller) {
-		// If form is valid
-		$rootScope.$emit('addToSellerList', newSeller);
-		$mdDialog.cancel();
-	};
-}]);
 "use strict";
 
 angular.module("project3App").controller("SellersController", ["$rootScope", "$scope", "AppResource", "$mdDialog", "$mdToast", function SellersController($rootScope, $scope, AppResource, $mdDialog, $mdToast) {

@@ -2,12 +2,15 @@
 <div class="seller-detail-container">
     <div id="seller-detail" class="seller-detail-item">
     	<md-whiteframe class="md-whiteframe-10dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout="" layout-align="center center">
-    	    <div class="seller-image">
-                <img ng-src="" alt="Seller profile image" />
-            </div>
-            <div class="seller-card-container">
-                
-            </div>
+    	    <div class="seller-detail-inner-container">
+                <div class="seller-image seller-detail-inner-item">
+                    <img class="resize-img " ng-src={{seller.imagePath}}/>
+                </div>
+                <div class="seller-card-container seller-detail-inner-item">
+                    <h4> {{seller.name}} </h4>
+                    <h4> {{seller.category}} </h4>
+                </div>
+            </div>   
     	</md-whiteframe>
     </div>
     <div class="seller-detail-item">
