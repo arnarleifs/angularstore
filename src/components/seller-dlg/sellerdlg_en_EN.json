@@ -7,6 +7,7 @@
 		"ErrorMsg": {
 			"NameMinLength":     "Minimum length of name is 2 letters",
 			"NameMaxLength":     "Max length of name is 32 letters",
+			"NameRequired":	     "The name is required",
 			"CategoryRequired":  "You need to select a category",
 			"ImageRequired":    "You need to have a picture of yourself"
 		}
