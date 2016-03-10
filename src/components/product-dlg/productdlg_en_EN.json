@@ -1,0 +1,23 @@
+{
+	"productdlg" : {
+		"Title":		             "Add new product",
+		"Name":                      "Name",
+		"Price":			     	 "Price",
+		"QuantitySold":			     "How many quantity sold of product?",
+		"QuantityInStock":           "How many quantity in stock?",
+		"ImagePath":                 "Path to image",
+		"ErrorMsg": {
+			"NameMinLength":             "Minimum length of name is 2 letters",
+			"NameMaxLength":             "Max length of name is 32 letters",
+			"NameRequired":	             "The name is required",
+			"PriceRequired":             "It is required to put a price on the product",
+			"PriceMinLength":		     "The price cannot be negative",
+			"QuantitySoldRequired":	     "It is required to put a quantity sold on the product",
+			"QuantitySoldMinLength":     "The quantity sold cannot be negative",
+			"QuantityInStockRequired":   "It is required to put quantity in stock on the product",
+			"QuantityInStockMinLength":  "The quantity in stock cannot be negative",
+			"ImagePathRequired":         "It is required to put an image path for the product",
+			"ImagePathMinLength":        "The minimum length of image path is 2 characters"
+		}
+	}
+}

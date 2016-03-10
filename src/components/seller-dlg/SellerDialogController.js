@@ -18,7 +18,7 @@ angular.module("project3App").controller("SellerDialogController", ["$rootScope"
 		"Heilsuvörur"
 	];
 	// Closes the dialog
-	$scope.close = function () {
+	$scope.close = function cancel() {
 		$mdDialog.cancel();
 	};
 	// Sends a request to SellerController to add to it's current list of sellers

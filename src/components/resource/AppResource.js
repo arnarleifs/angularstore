@@ -89,6 +89,7 @@ function AppResource() {
 	};
 
 	var countingId = 5;
+	var countingProductId = 23;
 
 	var mockResource = {
 		// Note: the following properties should NOT be used
@@ -168,6 +169,7 @@ function AppResource() {
 				var seller = _.find(mockSellers, function(o){ return o.id === id;});
 				if (seller) {
 					success = true;
+					product["id"] = countingProductId++;
 					mockProducts.push({
 						id: seller.id,
 						product: product

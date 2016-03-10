@@ -1,0 +1,106 @@
+<md-dialog aria-label="ProductAddDialog" ng-cloak>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{'productdlg.Title' | translate}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="close()">
+                <md-icon aria-label="Close dialog"><i class="fa fa-times"></i></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <form name="productAddForm">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>{{'productdlg.Name' | translate}}</label>
+                        <input
+                            type="text"
+                            name="name"
+                            ng-model="product.name"
+                            ng-minlength="2"
+                            ng-maxlength="32"
+                            required 
+                        />
+                        <div class="errors" ng-messages="productAddForm.name.$error">
+                            <div ng-message="minlength">{{'productdlg.ErrorMsg.NameMinLength' | translate}}</div>
+                            <div ng-message="maxlength">{{'productdlg.ErrorMsg.NameMaxLength' | translate}}</div>
+                            <div ng-message="required">{{'productdlg.ErrorMsg.NameRequired' | translate}}</div>
+                        </div>  
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>{{'productdlg.Price' | translate}}</label>
+                        <input 
+                            type="number" 
+                            name="price" 
+                            ng-model="product.price"
+                            min="1"
+                            required="" />
+                        <div class="errors" ng-messages="productAddForm.price.$error">
+                            <div ng-message="required">{{'productdlg.ErrorMsg.PriceRequired' | translate}}</div>
+                            <div ng-message="min">{{'productdlg.ErrorMsg.PriceMinLength' | translate}}</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>{{'productdlg.QuantitySold' | translate}}</label>
+                        <input 
+                            type="number"
+                            name="quantitySold"
+                            ng-model="product.quantitySold"
+                            min="1"
+                            required=""
+                        />
+                        <div class="errors" ng-messages="productAddForm.quantitySold.$error">
+                            <div ng-message="required">{{'productdlg.ErrorMsg.QuantitySoldRequired' | translate}}</div>
+                            <div ng-message="min">{{'productdlg.ErrorMsg.QuantitySoldMinLength' | translate}}</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>{{'productdlg.QuantityInStock' | translate}}</label>
+                        <input 
+                            type="number"
+                            name="quantityInStock"
+                            ng-model="product.quantityInStock"
+                            min="1"
+                            required=""
+                        />
+                        <div class="errors" ng-messages="productAddForm.quantityInStock.$error">
+                            <div ng-message="required">{{'productdlg.ErrorMsg.QuantityInStockRequired' | translate}}</div>
+                            <div ng-message="min">{{'productdlg.ErrorMsg.QuantityInStockMinLength' | translate}}</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>{{'productdlg.ImagePath' | translate}}</label>
+                        <input 
+                            type="text"
+                            name="imagePath"
+                            ng-model="product.imagePath"
+                            ng-minlength="1"
+                            required=""
+                        />
+                        <div class="errors" ng-messages="productAddForm.imagePath.$error">
+                            <div ng-message="required">{{'productdlg.ErrorMsg.ImagePathRequired' | translate}}</div>
+                            <div ng-message="minlength">{{'productdlg.ErrorMsg.ImagePathMinLength' | translate}}</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <md-dialog-actions layout="row">
+                    <md-button ng-click="close()">
+                        {{'shared.CancelButton' | translate}}
+                    </md-button>
+                    <md-button ng-click="addProduct(product)" style="margin-right:20px;" ng-disabled="productAddForm.$invalid">
+                        {{'shared.AddButton' | translate}}
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </div>
+    </md-dialog-content>
+</md-dialog>
