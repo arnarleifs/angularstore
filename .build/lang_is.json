@@ -4,10 +4,12 @@
 		"Category": "Flokkur",
 		"TabProduct": "Vörur",
 		"TabTop10": "Topp 10",
+		"Info": "Upplýsingar",
 		"Messages": {
 			"LoadFailed": "Ekki tókst að sækja vörulistann",
 			"SaveSucceeded": "Nýrri vöru hefur verið bætt við",
-			"SaveFailed": "Því miður tókst ekki að bæta við nýrri vöru"
+			"SaveFailed": "Því miður tókst ekki að bæta við nýrri vöru",
+			"SellerDetailsNotFound": "Því miður tókst ekki að finna upplýsingar um þennan seljanda"
 		}
 	},
 	"sellerdlg": {

@@ -47,12 +47,7 @@ body {
           align-self: flex-end;
 }
 .seller-detail-container #seller-detail {
-  width: 100%;
-}
-.md-whiteframe-10dp {
-  height: 300px;
-  max-width: 40%;
-  margin-bottom: 50px;
+  width: 35%;
 }
 .seller-row-1-container {
   display: -webkit-box;
@@ -128,12 +123,6 @@ md-dialog {
   -webkit-animation: blinking-success 3s infinite;
           animation: blinking-success 3s infinite;
 }
-.resize-img {
-  width: 230px;
-  height: auto;
-  border-radius: 10%;
-  padding-right: 5px;
-}
 .seller-detail-inner-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -153,6 +142,9 @@ md-dialog {
   -webkit-align-self: stretch;
       -ms-flex-item-align: stretch;
           align-self: stretch;
+}
+.card {
+  height: 290px !important;
 }
 
 .Sellers {

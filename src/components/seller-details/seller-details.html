@@ -1,17 +1,21 @@
 <!-- Here comes information about the seller -->
 <div class="seller-detail-container">
-    <div id="seller-detail" class="seller-detail-item">
-    	<md-whiteframe class="md-whiteframe-10dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout="" layout-align="center center">
-    	    <div class="seller-detail-inner-container">
-                <div class="seller-image seller-detail-inner-item">
-                    <img class="resize-img " ng-src={{seller.imagePath}}/>
-                </div>
-                <div class="seller-card-container seller-detail-inner-item">
-                    <h4> {{seller.name}} </h4>
-                    <h4> {{seller.category}} </h4>
-                </div>
-            </div>   
-    	</md-whiteframe>
+<div id="seller-detail" class="seller-detail-item">
+	   <md-content class="md-padding" layout-xs="column" layout="row">
+       <div flex-gt-xs="100" layout="column">
+            <md-card class="card">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class ="md-headline">{{'sellerdetails.Info' | translate}}</span>
+                        <span class "md-subhead">{{seller.name}}</span>
+                        <span class="md-subhead">{{seller.category}}</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-lg card-media"><img src={{seller.imagePath}}> </div>
+                    </md-card-title-media>
+                </md-card-title>
+            </md-card> 
+       </div>   
     </div>
     <div class="seller-detail-item">
         <md-button class="md-raised">Create new product</md-button>

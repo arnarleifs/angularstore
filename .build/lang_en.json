@@ -4,10 +4,12 @@
 		"Category": "Category",
 		"TabProduct": "Products",
 		"TabTop10": "Top 10",
+		"Info": "Info",
 		"Messages": {
 			"LoadFailed": "Failed to load the list of products",
 			"SaveSucceeded": "The product has been added successfully",
-			"SaveFailed": "Unfortunately we could not add a new product"
+			"SaveFailed": "Unfortunately we could not add a new product",
+			"SellerDetailsNotFound": "Unfortunately we could not retrieve the info about this seller"
 		}
 	},
 	"sellerdlg": {

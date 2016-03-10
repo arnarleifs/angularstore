@@ -1,15 +1,19 @@
 "use strict";
 
-angular.module("project3App").controller("SellerDetailsController", [ "$scope", "$routeParams", "AppResource", function ($scope, $routeParams, AppResource){
+angular.module("project3App").controller("SellerDetailsController", [ "$scope", "$routeParams", "AppResource", "$location","$mdToast", function ($scope, $routeParams, AppResource, $location, $mdToast){
 
 	$scope.seller = { };
-	$scope.errorMessage = "";
 
 	AppResource.getSellerDetails(parseInt($routeParams.id)).success(function (sellerInfo){
 		$scope.seller = sellerInfo;
 		console.log(sellerInfo);
-	}).error(function() {
-		$scope.errorMessage = "An error occurred while retreiving the details about this seller....please try again later";
+	}).error(function() {	
+		$location.path("/");
+		$mdToast.show({
+			templateUrl: 'components/toasts/failed_to_find_seller_details.html',
+			hideDelay: 3000,
+			position:'center'
+		});
 		console.log($scope.errorMessage);
 	});
 }]);

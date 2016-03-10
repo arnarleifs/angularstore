@@ -112,9 +112,10 @@ function AppResource() {
 		},
 
 		addSeller: function addSeller(seller) {
-			seller["id"] = countingId++;
 			if (mockResource.successAddSeller) {
+				seller["id"] = countingId++;
 				mockSellers.push(seller);
+
 			}
 			return mockHttpPromise(mockResource.successAddSeller, seller);
 		},
@@ -132,14 +133,10 @@ function AppResource() {
 		},
 
 		getSellerDetails: function(id) {
-			console.log("id er: " + id);
 			var seller;
 			for (var i = 0; i < mockSellers.length; ++i) {
-				console.log(mockSellers[i]);
 				if (mockSellers[i].id === id) {
 					seller = mockSellers[i];
-					console.log('found seller!');
-					console.log('seller is:' + seller);
 					break;
 				}
 			}
