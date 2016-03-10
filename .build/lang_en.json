@@ -1,9 +1,26 @@
 {
+	"sellerdetails": {
+		"Name": "Name",
+		"Category": "Category",
+		"TabProduct": "Products",
+		"TabTop10": "Top 10",
+		"Messages": {
+			"LoadFailed": "Failed to load the list of products",
+			"SaveSucceeded": "The product has been added successfully",
+			"SaveFailed": "Unfortunately we could not add a new product"
+		}
+	},
 	"sellerdlg": {
 		"Title": "Add new seller",
 		"Name": "Name",
 		"Category": "Category",
-		"ImagePath": "Path to image"
+		"ImagePath": "Path to image",
+		"ErrorMsg": {
+			"NameMinLength": "Minimum length of name is 2 letters",
+			"NameMaxLength": "Max length of name is 32 letters",
+			"CategoryRequired": "You need to select a category",
+			"ImageRequired": "You need to have a picture of yourself"
+		}
 	},
 	"sellers": {
 		"Title": "Sellers List",
@@ -16,17 +33,6 @@
 			"SaveFailed": "Unfortunately we could not add a new seller"
 		},
 		"SearchText": "Search for seller.."
-	},
-	"sellerdetails": {
-		"Name": "Name",
-		"Category": "Category",
-		"TabProduct": "Products",
-		"TabTop10": "Top 10",
-		"Messages": {
-			"LoadFailed": "Failed to load the list of products",
-			"SaveSucceeded": "The product has been added successfully",
-			"SaveFailed": "Unfortunately we could not add a new product"
-		}
 	},
 	"shared": {
 		"AddButton": "Add",

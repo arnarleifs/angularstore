@@ -6,6 +6,17 @@ angular.module("project3App").controller("SellerDialogController", ["$rootScope"
 		category: "",
 		imagePath: ""
 	};
+	$scope.categoryList = [
+		"Fatnaður",
+		"Keramik",
+		"Skartgripir",
+		"Matvörur",
+		"Leikföng",
+		"Kvikmyndir",
+		"List",
+		"Snyrtivörur",
+		"Heilsuvörur"
+	];
 	// Closes the dialog
 	$scope.close = function () {
 		$mdDialog.cancel();

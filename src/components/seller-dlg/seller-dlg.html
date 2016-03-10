@@ -1,47 +1,69 @@
 <md-dialog aria-label="SellerAddDialog" ng-cloak>
-    <form>
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <h2>{{'sellerdlg.Title' | translate}}</h2>
-                <span flex></span>
-                <md-button class="md-icon-button" ng-click="close()">
-                    <md-icon aria-label="Close dialog"><i class="fa fa-times"></i></md-icon>
-                </md-button>
-            </div>
-        </md-toolbar>
-
-        <md-dialog-content>
-            <div class="md-dialog-content">
-                <form>
-                    <div layout-gt-sm="row">
-                        <md-input-container class="md-block" flex-gt-sm="">
-                            <label>{{'sellerdlg.Name' | translate}}</label>
-                            <input ng-model="seller.name">
-                        </md-input-container>
-                    </div>
-                    <div layout-gt-sm="row">
-                        <md-input-container class="md-block" flex-gt-sm="">
-                            <label>{{'sellerdlg.Category' | translate}}</label>
-                            <input ng-model="seller.category">
-                        </md-input-container>
-                    </div>
-                    <div layout-gt-sm="row">
-                        <md-input-container class="md-block" flex-gt-sm="">
-                            <label>{{'sellerdlg.ImagePath' | translate}}</label>
-                            <input ng-model="seller.imagePath">
-                        </md-input-container>
-                    </div>
-                </form>
-            </div>
-        </md-dialog-content>
-
-        <md-dialog-actions layout="row">
-            <md-button ng-click="close()">
-                {{'shared.CancelButton' | translate}}
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{'sellerdlg.Title' | translate}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="close()">
+                <md-icon aria-label="Close dialog"><i class="fa fa-times"></i></md-icon>
             </md-button>
-            <md-button ng-click="addSeller(seller)" style="margin-right:20px;">
-                {{'shared.AddButton' | translate}}
-            </md-button>
-        </md-dialog-actions>
-    </form>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <form name="sellerAddForm">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>{{'sellerdlg.Name' | translate}}</label>
+                        <input
+                            type="text"
+                            name="name"
+                            ng-model="seller.name"
+                            ng-minlength="2"
+                            ng-maxlength="32"
+                            required 
+                        />
+                        <div class="errors" ng-messages="sellerAddForm.name.$error">
+                            <div ng-message="minlength">{{'sellerdlg.ErrorMsg.NameMinLength' | translate}}</div>
+                            <div ng-message="maxlength">{{'sellerdlg.ErrorMsg.NameMaxLength' | translate}}</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>{{'sellerdlg.Category' | translate}}</label>
+                        <md-select name="category" ng-model="seller.category" required="">
+                            <md-option ng-repeat="category in categoryList" value="{{category}}">
+                            {{category}}
+                            </md-option>
+                        </md-select>
+                        <div class="errors" ng-messages="sellerAddForm.category.$error">
+                            <div ng-message="required">{{'sellerdlg.ErrorMsg.CategoryRequired' | translate}}</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>{{'sellerdlg.ImagePath' | translate}}</label>
+                        <input 
+                            type="text"
+                            name="imagepath"
+                            ng-model="seller.imagePath"
+                            required=""
+                        />
+                        <div class="errors" ng-messages="sellerAddForm.imagepath.$error">
+                            <div ng-message="required">{{'sellerdlg.ErrorMsg.ImageRequired' | translate}}</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <md-dialog-actions layout="row">
+                    <md-button ng-click="close()">
+                        {{'shared.CancelButton' | translate}}
+                    </md-button>
+                    <md-button ng-click="addSeller(seller)" style="margin-right:20px;" ng-disabled="sellerAddForm.$invalid">
+                        {{'shared.AddButton' | translate}}
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </div>
+    </md-dialog-content>
 </md-dialog>
