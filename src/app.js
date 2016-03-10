@@ -6,7 +6,8 @@ angular.module("project3App", ["ngRoute", "ui.bootstrap", "ngMaterial", "ngMessa
 		controller: "SellersController",
 		templateUrl: "components/sellers/index.html"
 	})
-	.when("/seller-detail", {
+	.when("/seller-details/:id", {
+		controller: "SellerDetailsController",
 		templateUrl: "components/seller-details/seller-details.html"
 	});
 	

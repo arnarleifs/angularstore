@@ -1,15 +1,4 @@
 {
-	"sellerdetails": {
-		"Name": "Nafn",
-		"Category": "Flokkur",
-		"TabProduct": "Vörur",
-		"TabTop10": "Topp 10",
-		"Messages": {
-			"LoadFailed": "Ekki tókst að sækja vörulistann",
-			"SaveSucceeded": "Nýrri vöru hefur verið bætt við",
-			"SaveFailed": "Því miður tókst ekki að bæta við nýrri vöru"
-		}
-	},
 	"sellerdlg": {
 		"Title": "Bæta við nýjum seljanda",
 		"Name": "Nafn",
@@ -27,6 +16,17 @@
 			"SaveFailed": "Því miður tókst ekki að bæta við nýjum seljanda"
 		},
 		"SearchText": "Leitaðu af seljanda.."
+	},
+	"sellerdetails": {
+		"Name": "Nafn",
+		"Category": "Flokkur",
+		"TabProduct": "Vörur",
+		"TabTop10": "Topp 10",
+		"Messages": {
+			"LoadFailed": "Ekki tókst að sækja vörulistann",
+			"SaveSucceeded": "Nýrri vöru hefur verið bætt við",
+			"SaveFailed": "Því miður tókst ekki að bæta við nýrri vöru"
+		}
 	},
 	"shared": {
 		"AddButton": "Bæta við",
