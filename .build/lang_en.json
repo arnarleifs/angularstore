@@ -1,4 +1,16 @@
 {
+	"sellerdlg": {
+		"Title": "Add new seller",
+		"Name": "Name",
+		"Category": "Category",
+		"ImagePath": "Path to image",
+		"ErrorMsg": {
+			"NameMinLength": "Minimum length of name is 2 letters",
+			"NameMaxLength": "Max length of name is 32 letters",
+			"CategoryRequired": "You need to select a category",
+			"ImageRequired": "You need to have a picture of yourself"
+		}
+	},
 	"sellerdetails": {
 		"Name": "Name",
 		"Category": "Category",
@@ -10,18 +22,6 @@
 			"SaveSucceeded": "The product has been added successfully",
 			"SaveFailed": "Unfortunately we could not add a new product",
 			"SellerDetailsNotFound": "Unfortunately we could not retrieve the info about this seller"
-		}
-	},
-	"sellerdlg": {
-		"Title": "Add new seller",
-		"Name": "Name",
-		"Category": "Category",
-		"ImagePath": "Path to image",
-		"ErrorMsg": {
-			"NameMinLength": "Minimum length of name is 2 letters",
-			"NameMaxLength": "Max length of name is 32 letters",
-			"CategoryRequired": "You need to select a category",
-			"ImageRequired": "You need to have a picture of yourself"
 		}
 	},
 	"sellers": {

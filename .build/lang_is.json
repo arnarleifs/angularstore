@@ -1,4 +1,16 @@
 {
+	"sellerdlg": {
+		"Title": "Bæta við nýjum seljanda",
+		"Name": "Nafn",
+		"Category": "Flokkur",
+		"ImagePath": "Slóð á mynd",
+		"ErrorMsg": {
+			"NameMinLength": "Lágmarks lengd af nafni eru 2 stafir",
+			"NameMaxLength": "Hámarks lengd af nafni eru 32 stafir",
+			"CategoryRequired": "Nauðsynlegt er að velja einn flokk",
+			"ImageRequired": "Nauðsynlegt er að hafa slóð af mynd"
+		}
+	},
 	"sellerdetails": {
 		"Name": "Nafn",
 		"Category": "Flokkur",
@@ -10,18 +22,6 @@
 			"SaveSucceeded": "Nýrri vöru hefur verið bætt við",
 			"SaveFailed": "Því miður tókst ekki að bæta við nýrri vöru",
 			"SellerDetailsNotFound": "Því miður tókst ekki að finna upplýsingar um þennan seljanda"
-		}
-	},
-	"sellerdlg": {
-		"Title": "Bæta við nýjum seljanda",
-		"Name": "Nafn",
-		"Category": "Flokkur",
-		"ImagePath": "Slóð á mynd",
-		"ErrorMsg": {
-			"NameMinLength": "Lágmarks lengd af nafni eru 2 stafir",
-			"NameMaxLength": "Hámarks lengd af nafni eru 32 stafir",
-			"CategoryRequired": "Nauðsynlegt er að velja einn flokk",
-			"ImageRequired": "Nauðsynlegt er að hafa slóð af mynd"
 		}
 	},
 	"sellers": {
