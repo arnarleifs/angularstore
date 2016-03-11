@@ -1,0 +1,23 @@
+{
+	"productdlg" : {
+		"Title":		             "Bæta við nýrri vöru",
+		"Name":                      "Nafn",
+		"Price":			     	 "Verð",
+		"QuantitySold":			     "Hversu mörg seld eintök af vöru?",
+		"QuantityInStock":           "Hversu margar vörur eru til?",
+		"ImagePath":                 "Slóð á mynd",
+		"ErrorMsg": {
+			"NameMinLength":             "Lágmarks lengd af nafni eru 2 stafir",
+			"NameMaxLength":     		 "Hámarks lengd af nafni eru 32 stafir",
+			"NameRequired":	     		 "Nauðsynlegt er að setja inn nafn á seljanda",
+			"PriceRequired":             "Nauðsynlegt er að setja inn verð á vöru",
+			"PriceMinLength":		     "Ekki er hægt að slá inn neikvætt verð",
+			"QuantitySoldRequired":	     "Nauðsynlegt er að setja inn fjölda seldra eintaka af vöru",
+			"QuantitySoldMinLength":     "Ekki er hægt að slá inn neikvæðan fjölda seldra eintaka af vöru",
+			"QuantityInStockRequired":   "Nauðsynlegt er að setja inn birgðamagn af vöru",
+			"QuantityInStockMinLength":  "Ekki er hægt að slá inn neikvæðan fjölda af birgðamagni",
+			"ImagePathRequired":         "Nauðsynlegt er að setja inn slóð á mynd fyrir vöru",
+			"ImagePathMinLength":        "Lágmarks lengd af slóð á mynd eru 2 stafir"
+		}
+	}
+}

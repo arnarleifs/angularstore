@@ -48,6 +48,12 @@ describe("SellersController", function() {
         }
     };
 
+    var mockLocation = {
+        path: function(route) {
+
+        }
+    };
+
     describe("List of sellers failed", function () {
         beforeEach(inject(function ($rootScope, $controller) {
             scope = $rootScope.$new();
@@ -84,6 +90,22 @@ describe("SellersController", function() {
         it('should show list of sellers on the main site', function() {
             expect(scope.loadingListError).toBe(false);
             expect(scope.listOfSellers).not.toEqual([]);
+        });
+    });
+
+    describe("Successfully redirected to seller-detail page", function () {
+        beforeEach(inject(function ($rootScope, $controller) {
+            scope = $rootScope.$new();
+            spyOn(mockLocation, "path");
+            SellersController = $controller('SellersController', {
+                $scope: scope,
+                $location: mockLocation
+            });
+        }));
+
+        it('should redirect to seller-detail page', function () {
+            scope.getSellerDetail(1);
+            expect(mockLocation.path).toHaveBeenCalledWith('/seller-details/1');
         });
     });
 });

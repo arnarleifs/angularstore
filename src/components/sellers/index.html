@@ -12,7 +12,7 @@
 					<div class="input-group-addon">
 						<i class="fa fa-search"></i>
 					</div>
-					<input type="text" class="form-control" placeholder="{{'sellers.SearchText' | translate}}" ng-model="searchWord" />
+					<input type="text" class="form-control" placeholder="{{'sellers.SearchText' | translate}}" ng-model="searchWord" autofocus />
 				</div>
 			</div>
 		</form>
@@ -37,9 +37,10 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="seller in listOfSellers | orderBy:sortType:sortReverse | filter: searchWord">
-				<td hidden="hidden">{{seller.id}}</td>
-				<td>{{seller.name}}</td>
+		    <tr ng-repeat="seller in listOfSellers | orderBy:sortType:sortReverse | filter: searchWord">			
+				<td>
+					<a ng-click="getSellerDetail(seller.id)">{{seller.name}}</a>
+				</td>
 				<td>{{seller.category}}</td>
 			</tr>
 		</tbody>

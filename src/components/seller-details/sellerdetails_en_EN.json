@@ -5,6 +5,7 @@
 		"TabProduct":			     "Products",
 		"TabTop10":					 "Top 10",
 		"Info":						 "Info",
+		"CreateProduct":			 "Add new product",	
 		"Messages" : {
 			"LoadFailed":            "Failed to load the list of products",
 			"SaveSucceeded":         "The product has been added successfully",

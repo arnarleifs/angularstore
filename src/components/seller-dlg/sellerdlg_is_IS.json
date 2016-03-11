@@ -7,6 +7,7 @@
 		"ErrorMsg": {
 			"NameMinLength":     "Lágmarks lengd af nafni eru 2 stafir",
 			"NameMaxLength":     "Hámarks lengd af nafni eru 32 stafir",
+			"NameRequired":	     "Nauðsynlegt er að setja inn nafn á seljanda",
 			"CategoryRequired":  "Nauðsynlegt er að velja einn flokk",
 			"ImageRequired":    "Nauðsynlegt er að hafa slóð af mynd"
 		}

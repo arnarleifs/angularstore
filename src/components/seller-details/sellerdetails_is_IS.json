@@ -5,6 +5,7 @@
 		"TabProduct":				 "Vörur",
 		"TabTop10":					 "Topp 10",
 		"Info":						"Upplýsingar",	
+		"CreateProduct":			"Bæta við nýrri vöru",
 		"Messages" : {
 			"LoadFailed":            "Ekki tókst að sækja vörulistann",
 			"SaveSucceeded":         "Nýrri vöru hefur verið bætt við",

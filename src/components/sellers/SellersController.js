@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("project3App").controller("SellersController", ["$rootScope", "$scope", "AppResource", "$mdDialog", "$mdToast", function SellersController($rootScope, $scope, AppResource, $mdDialog, $mdToast) {
+angular.module("project3App").controller("SellersController", ["$rootScope", "$scope", "$location", "AppResource", "$mdDialog", "$mdToast", function SellersController($rootScope, $scope, $location, AppResource, $mdDialog, $mdToast) {
 	// default sorting type for the seller table
 	$scope.sortType = 'name';
 	// default sort order
@@ -21,6 +21,10 @@ angular.module("project3App").controller("SellersController", ["$rootScope", "$s
 			clickOutsideToClose: true,
 			escapeToClose: true
 		});
+	};
+	// Routes to the detail site of the selected seller
+	$scope.getSellerDetail = function getSellerDetail(id) {
+		$location.path("/seller-details/" + id);
 	};
 
 	// Listen for new added sellers through the dialog (SellerDialogController)
