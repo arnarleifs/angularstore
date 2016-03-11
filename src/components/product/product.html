@@ -1,11 +1,12 @@
 <div class="main-container">
-  <div class="test-container">
-    <div class="test-item-center">
-      <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRWnEWQ-9qlQAdlD4a5sRYTWAiWblI8NMfw5bBS5buGrPdYoRxbIgQdAUY" />
+  <div class="product-container">
+    <div class="product-item-center">
+      <img ng-src="{{product.imagePath}}" />
+      <img src="http://www.techcounsellor.com/img/work/approach/p.png" ng-if="product.imagePath == ''" />
     </div>
   </div>
-  <div class="test-container">
-    <div class="test-item-space-around">
+  <div class="product-container">
+    <div class="product-item-space-around">
       <p>{{'product.Name' | translate}}: {{product.name}}</p>
       <p>{{'product.Price' | translate}}: {{product.price}}</p>
     </div>
