@@ -2,8 +2,6 @@
 	"sellerdetails" : {
 		"Name":                      "Name",
 		"Category":					 "Category",
-		"TabProduct":			     "Products",
-		"TabTop10":					 "Top 10",
 		"Info":						 "Info",
 		"CreateProduct":			 "Add new product",	
 		"Messages" : {

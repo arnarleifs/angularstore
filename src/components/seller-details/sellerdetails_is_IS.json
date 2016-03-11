@@ -2,8 +2,6 @@
 	"sellerdetails" : {
 		"Name":                      "Nafn",
 		"Category":			     	 "Flokkur",
-		"TabProduct":				 "Vörur",
-		"TabTop10":					 "Topp 10",
 		"Info":						"Upplýsingar",	
 		"CreateProduct":			"Bæta við nýrri vöru",
 		"Messages" : {

@@ -3,6 +3,7 @@
 angular.module("project3App").controller("SellerDetailsController", [ "$rootScope", "$scope", "$routeParams", "AppResource", "$location","$mdToast", "$mdDialog", function ($rootScope, $scope, $routeParams, AppResource, $location, $mdToast, $mdDialog){
 
 	$scope.seller = { };
+	$scope.sellerId = -1;
 
 	// Opens up the dialog to add a new product
 	$scope.openDialog = function openDialog(evt) {
@@ -25,8 +26,8 @@ angular.module("project3App").controller("SellerDetailsController", [ "$rootScop
 	});
 
 	AppResource.getSellerDetails(parseInt($routeParams.id)).success(function (sellerInfo){
+		$scope.sellerId = parseInt($routeParams.id);
 		$scope.seller = sellerInfo;
-		console.log(sellerInfo);
 	}).error(function() {	
 		$location.path("/");
 		$mdToast.show({
@@ -35,4 +36,5 @@ angular.module("project3App").controller("SellerDetailsController", [ "$rootScop
 			position:'center'
 		});
 	});
+
 }]);

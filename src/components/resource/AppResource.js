@@ -149,7 +149,7 @@ function AppResource() {
 			}
 		},
 
-		getSellerProducts: function getSellerProducts(id) {
+		getSellerProducts: function (id) {
 			var products = [];
 			for (var i = 0; i < mockProducts.length; ++i) {
 				if (mockProducts[i].id === id) {
