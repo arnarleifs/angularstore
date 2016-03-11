@@ -10,12 +10,12 @@ describe("ProductDialogController", function () {
 
 		}
 	};
-	
+
 	describe("ProductDialogController testing modal", function () {
 		beforeEach(inject(function ($rootScope, $controller) {
 			scope = $rootScope.$new();
 			spyOn(mockDialog, "cancel");
-			ProductDialogController = $controller("ProductDialogController", function () {
+			ProductDialogController = $controller("ProductDialogController", {
 				$scope: scope,
 				$mdDialog: mockDialog
 			});
@@ -30,10 +30,10 @@ describe("ProductDialogController", function () {
 	describe("ProductDialogController testing add product", function () {
 		beforeEach(inject(function ($rootScope, $controller) {
 			scope = $rootScope.$new();
-			spyOn(scope, "addProduct");
-			ProductDialogController = $controller("ProductDialogController", function () {
+			ProductDialogController = $controller("ProductDialogController", {
 				$scope: scope
 			});
+			spyOn(scope, "addProduct");
 		}));
 
 		it('should call addProduct with the given product', function () {
@@ -44,7 +44,7 @@ describe("ProductDialogController", function () {
 				quantitySold: 0,
 				quantityInStock: 0,
 				imagePath: ""
-			}
+			};
 			scope.addProduct(product);
 			expect(scope.addProduct).toHaveBeenCalledWith(product);
 		});
