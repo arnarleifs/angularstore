@@ -11,7 +11,8 @@ angular.module("project3App").controller("ProductTabController", ["$rootScope", 
 
 	$rootScope.$on('addToProductList', function (data, product) {
 		AppResource.addSellerProduct(parseInt($scope.sellerId), product).success(function (product) {
-			console.log(product);
+			// Show toast
+			$scope.productList.push(product);
 		}).error(function () {
 			console.log("error");
 		});
