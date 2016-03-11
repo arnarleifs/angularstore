@@ -9,7 +9,7 @@
         <md-tab label="Top 10">
             <md-content class="md-padding">
                 <h1 class="md-display-2">{{'producttabs.TabTop10' | translate}}</h1>
-                <product ng-repeat="product in productList"></product>
+                <product ng-repeat="product in productList | orderBy: 'price' | limitTo: 10 "></product>
             </md-content>
         </md-tab>
     </md-tabs>
