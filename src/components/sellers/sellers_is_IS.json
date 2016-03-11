@@ -4,6 +4,7 @@
 		"Name":                      "Nafn",
 		"Category":				     "Flokkur",
 		"AddButton":				 "Bæta við",
+		"EditSeller":                "Uppfæra seljanda",
 		"Messages" : {
 			"LoadFailed":            "Ekki tókst að sækja lista yfir seljendur",
 			"SaveSucceeded":         "Nýjum seljanda hefur verið bætt við",
