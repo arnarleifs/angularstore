@@ -1,6 +1,13 @@
 {
 	"product": {
 		"Name":				"Nafn",
-		"Price":			"Verð"
+		"Price":			"Verð",
+		"EditProduct":      "Uppfæra vöru",
+		"Messages": {
+			"AddProductSuccess":      "Vörunni hefur verið bætt við",
+			"AddProductFailed":       "Villa kom upp við að bæta vöru við",
+			"EditProductSuccess":     "Varan hefur verið uppfærð",
+			"EditProductFailed":      "Villa kom upp við að uppfæra vöru"
+		}
 	}
 }

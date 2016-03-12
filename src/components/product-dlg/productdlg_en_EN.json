@@ -1,4 +1,7 @@
 {
+	"producteditdlg": {
+		"Title":					"Edit product"
+	},
 	"productdlg" : {
 		"Title":		             "Add new product",
 		"Name":                      "Name",

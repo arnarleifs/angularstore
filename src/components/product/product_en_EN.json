@@ -1,6 +1,13 @@
 {
 	"product": {
 		"Name":				"Name",
-		"Price":			"Price"
+		"Price":			"Price",
+		"EditProduct":      "Edit product",
+		"Messages": {
+			"AddProductSuccess":      "The product has been added successfully",
+			"AddProductFailed":       "An error occurred while adding the product",
+			"EditProductSuccess":     "The product has been updated successfully",
+			"EditProductFailed":      "An error occurred while updating the product"
+		}
 	}
 }

@@ -13,7 +13,10 @@ angular.module("project3App").controller("SellerDetailsController", [ "$rootScop
 			parent: angular.element(document.body),
 			targetEvent: evt,
 			clickOutsideToClose: true,
-			escapeToClose: true
+			escapeToClose: true,
+			locals: {
+				product: undefined
+			}
 		});
 	};
 

@@ -1,4 +1,7 @@
 {
+	"producteditdlg": {
+		"Title":					"Breyta vöru"
+	},
 	"productdlg" : {
 		"Title":		             "Bæta við nýrri vöru",
 		"Name":                      "Nafn",

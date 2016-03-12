@@ -1,6 +1,11 @@
 <div class="main-container">
   <div class="product-container">
     <div class="product-item-center">
+      <i class="fa fa-pencil-square-o pull-right" ng-click="editProduct($event, product)">
+        <md-tooltip md-direction="top">
+            {{'product.EditProduct' | translate}}
+        </md-tooltip>
+      </i>
       <img ng-src="{{product.imagePath}}" />
       <img src="http://www.techcounsellor.com/img/work/approach/p.png" ng-if="product.imagePath == ''" />
     </div>
