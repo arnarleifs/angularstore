@@ -17,7 +17,8 @@ describe("ProductDialogController", function () {
 			spyOn(mockDialog, "cancel");
 			ProductDialogController = $controller("ProductDialogController", {
 				$scope: scope,
-				$mdDialog: mockDialog
+				$mdDialog: mockDialog,
+				product: undefined
 			});
 		}));
 
@@ -31,7 +32,8 @@ describe("ProductDialogController", function () {
 		beforeEach(inject(function ($rootScope, $controller) {
 			scope = $rootScope.$new();
 			ProductDialogController = $controller("ProductDialogController", {
-				$scope: scope
+				$scope: scope,
+				product: undefined
 			});
 			spyOn(scope, "addProduct");
 		}));
