@@ -4,6 +4,7 @@
 		"Name":                      "Name",
 		"Category":				     "Category",
 		"AddButton":				 "Add",
+		"EditSeller":                "Edit seller",
 		"Messages" : {
 			"LoadFailed":            "Failed to load the list of sellers",
 			"SaveSucceeded":         "The seller has been added successfully",
