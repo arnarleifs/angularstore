@@ -8,7 +8,9 @@
 		"Messages" : {
 			"LoadFailed":            "Failed to load the list of sellers",
 			"SaveSucceeded":         "The seller has been added successfully",
-			"SaveFailed":            "Unfortunately we could not add a new seller"
+			"SaveFailed":            "Unfortunately we could not add a new seller",
+			"EditSucceeded":         "The seller has been updated successfully",
+			"EditFailed":            "An error occurred while updating the seller"
 		},
 		"SearchText":				 "Search for seller.."
 	}

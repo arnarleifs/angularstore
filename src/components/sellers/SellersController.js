@@ -19,12 +19,29 @@ angular.module("project3App").controller("SellersController", ["$rootScope", "$s
 			parent: angular.element(document.body),
 			targetEvent: evt,
 			clickOutsideToClose: true,
-			escapeToClose: true
+			escapeToClose: true,
+			locals: {
+				seller: undefined
+			}
 		});
 	};
 	// Routes to the detail site of the selected seller
 	$scope.getSellerDetail = function getSellerDetail(id) {
 		$location.path("/seller-details/" + id);
+	};
+	// Opens a dialog for editing the selected user
+	$scope.editSeller = function editSeller(evt, seller) {
+		$mdDialog.show({
+			controller: "SellerDialogController",
+			templateUrl: "components/seller-dlg/seller-edit-dlg.html",
+			parent: angular.element(document.body),
+			target: evt,
+			clickOutsideToClose: true,
+			escapeToClose: true,
+			locals: {
+				seller: seller
+			}
+		});
 	};
 
 	// Listen for new added sellers through the dialog (SellerDialogController)
@@ -38,6 +55,33 @@ angular.module("project3App").controller("SellersController", ["$rootScope", "$s
 			});
 		}).error(function (errorData) {
 			// Show appropriate error message
+			$mdToast.show({
+				templateUrl: 'components/toasts/add_failed_toast.html',
+				parent: angular.element(document.body),
+				hideDelay: 3000,
+				position: 'center'
+			});
+		});
+	});
+
+	// Listen for new edited seller through the dialog (SellerEditController)
+	$rootScope.$on('editSeller', function (data, newSeller) {
+		AppResource.updateSeller(newSeller.id, newSeller).success(function (seller) {
+			// Show success toast
+			$mdToast.show({
+				templateUrl: 'components/toasts/edit_success_toast.html',
+				parent: angular.element(document.body),
+				hideDelay: 3000,
+				position: 'center'
+			});
+		}).error(function () {
+			// Show error toast
+			$mdToast.show({
+				templateUrl: 'components/toasts/edit_failed_toast.html',
+				parent: angular.element(document.body),
+				hideDelay: 3000,
+				position: 'center'	
+			});
 		});
 	});
 

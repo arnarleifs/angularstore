@@ -1,6 +1,7 @@
 {
 	"shared" : {
 		"AddButton":         "Add",
+		"EditButton":        "Edit",
 		"CancelButton":     "Cancel"
 	}
 }

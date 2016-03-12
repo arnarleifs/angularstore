@@ -1,4 +1,7 @@
 {
+	"sellereditdlg": {
+		"Title":		"Breyta eftirfarandi seljanda"
+	},
 	"sellerdlg" : {
 		"Title":    "Bæta við nýjum seljanda",
 		"Name":     "Nafn",

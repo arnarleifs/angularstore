@@ -1,6 +1,7 @@
 {
 	"shared" : {
 		"AddButton":        "Bæta við",
+		"EditButton":        "Breyta",
 		"CancelButton":     "Loka"
 	}
 }

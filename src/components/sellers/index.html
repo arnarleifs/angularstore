@@ -40,7 +40,7 @@
 		    <tr ng-repeat="seller in listOfSellers | orderBy:sortType:sortReverse | filter: searchWord">			
 				<td>
 					<a ng-click="getSellerDetail(seller.id)">{{seller.name}}</a>
-						<i class="fa fa-pencil-square-o pull-right">
+						<i class="fa fa-pencil-square-o pull-right" ng-click="editSeller($event, seller)">
 							<md-tooltip md-direction="top">
 								{{'sellers.EditSeller' | translate}}
 							</md-tooltip>

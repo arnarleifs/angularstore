@@ -1,4 +1,7 @@
 {
+	"sellereditdlg": {
+		"Title":		"Edit current seller"
+	},
 	"sellerdlg" : {
 		"Title":        "Add new seller",
 		"Name":         "Name",
