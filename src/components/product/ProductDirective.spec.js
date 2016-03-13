@@ -1,7 +1,7 @@
 "use strict";
 
 describe("ProductDirective", function() {
-	var template = "<product allow-edit='allow'></product>";
+	var template = "<product></product>";
 	var scope;
 	var compile;
 	var element;
@@ -36,7 +36,7 @@ describe("ProductDirective", function() {
 // Use regular expect() methods to check on the contents of
 // the directive scope, i.e. by using "isolatedScope" instead
 // of "scope".
-			expect(scope.smu).toBeDefined();	
+			expect(element).toBeDefined();	
 		});
 	});
 // Etc., more describe() blocks, and more it() blocks as well...
