@@ -5,8 +5,21 @@ describe("SellerDialogController", function () {
 
 	var SellerDialogController, scope, parent;
 
+	var mockSeller = {
+		id: 1,
+		name: "name",
+		category: "category",
+		imagePath: "img"
+	};
+
 	var mdDialogMock = {
 		cancel: function () {
+
+		}
+	};
+
+	var mockRootScope = {
+		$emit: function (eventName, data) {
 
 		}
 	};
@@ -15,22 +28,25 @@ describe("SellerDialogController", function () {
 		beforeEach(inject(function ($rootScope, $controller, $compile) {
 			scope = $rootScope.$new();
 			spyOn(mdDialogMock, "cancel");
+			spyOn(mockRootScope, "$emit");
 			SellerDialogController = $controller("SellerDialogController", {
 				$scope: scope,
 				$mdDialog: mdDialogMock,
-				seller: undefined
+				seller: mockSeller,
+				$rootScope: mockRootScope
 			});
 		}));
 		
 		it('should add a user to the seller list', function () {
-			var testSeller = {
-				name: "Pruf",
-				category: "Pruf",
-				imagePath: "http://www.img.com/img.jpg"
-			};
-			scope.addSeller(testSeller);
-			expect(true).toBe(true);
-			//expect(parent.listOfSellers).toContain(testSeller);
+			scope.addSeller(mockSeller);
+			expect(mockRootScope.$emit).toHaveBeenCalledWith('addToSellerList', mockSeller);
+			expect(mdDialogMock.cancel).toHaveBeenCalled();
+		});
+
+		it('should edit a user in the seller list', function () {
+			scope.editSeller(mockSeller);
+			expect(mockRootScope.$emit).toHaveBeenCalledWith('editSeller', mockSeller);
+			expect(mdDialogMock.cancel).toHaveBeenCalled();
 		});
 
 		it('should be called when closing dialog', function () {
