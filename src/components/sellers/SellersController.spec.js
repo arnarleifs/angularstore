@@ -13,6 +13,13 @@ describe("SellersController", function() {
         imagePath: "http://i.imgur.com/OYVpe2W.jpg?fb"
     }];
 
+    var mockSeller = {
+        id: 1,
+        name: "name",
+        category: "category",
+        imagePath: "img"
+    };
+
     var mockHttpPromise = function(condition, data) {
         return {
             success: function(fn) {
@@ -33,12 +40,24 @@ describe("SellersController", function() {
     var mockResourceFalse = {
         getSellers: function () {
             return mockHttpPromise(false, null);
+        },
+        addSeller: function () {
+            return mockHttpPromise(false, null);
+        },
+        updateSeller: function () {
+            return mockHttpPromise(false, null);
         }
     };
 
     var mockResourceTrue = {
         getSellers: function () {
             return mockHttpPromise(true, mockSellerList);
+        },
+        addSeller: function () {
+            return mockHttpPromise(true, mockSeller);
+        },
+        updateSeller: function () {
+            return mockHttpPromise(true, mockSeller);
         }
     };
 
@@ -61,7 +80,8 @@ describe("SellersController", function() {
             SellersController = $controller('SellersController', {
                 $scope: scope,
                 AppResource: mockResourceFalse,
-                $mdDialog: mdDialogMock
+                $mdDialog: mdDialogMock,
+                $mdToast: mdDialogMock
             });
         }));
 
@@ -71,8 +91,23 @@ describe("SellersController", function() {
             expect(scope.listOfSellers).toEqual([]);
         });
 
-        it('should open dialog', function () {
+        it('should open add dialog', function () {
             scope.openDialog();
+            expect(mdDialogMock.show).toHaveBeenCalled();
+        });
+
+        it('should open edit dialog', function () {
+            scope.editSeller();
+            expect(mdDialogMock.show).toHaveBeenCalled();
+        });
+
+        it('should fail to add user to sellerList', function () {
+            scope.$emit('addToSellerList', mockSeller);
+            expect(scope.listOfSellers).not.toContain(mockSeller);
+        });
+
+        it('should fail to edit user in seller list', function () {
+            scope.$emit('editSeller', mockSeller);
             expect(mdDialogMock.show).toHaveBeenCalled();
         });
     });
@@ -80,9 +115,12 @@ describe("SellersController", function() {
     describe("List of sellers succeeded", function () {
         beforeEach(inject(function ($rootScope, $controller) {
             scope = $rootScope.$new();
+            spyOn(mdDialogMock, "show");
             SellersController = $controller('SellersController', {
                 $scope: scope,
-                AppResource: mockResourceTrue
+                AppResource: mockResourceTrue,
+                $mdDialog: mdDialogMock,
+                $mdToast: mdDialogMock
             });
         }));
         
@@ -90,6 +128,16 @@ describe("SellersController", function() {
         it('should show list of sellers on the main site', function() {
             expect(scope.loadingListError).toBe(false);
             expect(scope.listOfSellers).not.toEqual([]);
+        });
+
+        it('should succeed to add user to sellerList', function () {
+            scope.$emit('addToSellerList', mockSeller);
+            expect(mdDialogMock.show).toHaveBeenCalled();
+        });
+
+        it('should succeed to edit user in seller list', function () {
+            scope.$emit('editSeller', mockSeller);
+            expect(mdDialogMock.show).toHaveBeenCalled();
         });
     });
 
