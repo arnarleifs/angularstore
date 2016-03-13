@@ -63,4 +63,10 @@ angular.module("project3App").controller("ProductTabController", ["$rootScope", 
 			});
 		});
 	});
+
+	// To unsubscribe the $rootScope.$on subscribers
+	$scope.$on('$destroy', function () {
+		$rootScope.$$listeners['addToProductList'] = [];
+		$rootScope.$$listeners['editProduct'] = [];
+	});
 }]);

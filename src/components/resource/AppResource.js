@@ -114,7 +114,7 @@ function AppResource() {
 
 		addSeller: function addSeller(seller) {
 			if (mockResource.successAddSeller) {
-				seller["id"] = countingId++;
+				seller.id = countingId++;
 				mockSellers.push(seller);
 
 			}

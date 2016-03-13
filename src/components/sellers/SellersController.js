@@ -85,6 +85,12 @@ angular.module("project3App").controller("SellersController", ["$rootScope", "$s
 		});
 	});
 
+	// To unsubscribe the $rootScope.$on subscribers
+	$scope.$on('$destroy', function () {
+		$rootScope.$$listeners['addToSellerList'] = [];
+		$rootScope.$$listeners['editSeller'] = [];
+	});
+
 	// Initialize the list of sellers
 	AppResource.getSellers().success(function (data) {
 		$scope.listOfSellers = data;

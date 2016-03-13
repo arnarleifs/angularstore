@@ -27,14 +27,14 @@ describe("ProductDirective", function() {
 			// Since the directive uses a templateUrl, we must flush
 			// the HTTP pipeline to ensure the template is properly loaded:
 			backend.flush();
-// Now we can start examining the scope of our directive.
-// Since it uses isolated scope, any changes it makes
-// to the scope object only affect its own scope,
-// which we must access explicitly:
+			// Now we can start examining the scope of our directive.
+			// Since it uses isolated scope, any changes it makes
+			// to the scope object only affect its own scope,
+			// which we must access explicitly:
 			var isolatedScope = element.isolateScope();
-// Use regular expect() methods to check on the contents of
-// the directive scope, i.e. by using "isolatedScope" instead
-// of "scope".
+			// Use regular expect() methods to check on the contents of
+			// the directive scope, i.e. by using "isolatedScope" instead
+			// of "scope".
 			// Now we can start examining the scope of our directive.
 			// Since it uses isolated scope, any changes it makes
 			// to the scope object only affect its own scope,
