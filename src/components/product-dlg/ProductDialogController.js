@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("project3App").controller("ProductDialogController", ["$rootScope", "$scope", "$mdDialog", "AppResource", "product", function ($rootScope, $scope, $mdDialog, AppResource, product) {
+angular.module("project3App").controller("ProductDialogController", ["$rootScope", "$scope", "$mdDialog", "product", function ($rootScope, $scope, $mdDialog, product) {
 	$scope.product = {
 		id: 0,
 		name: "",

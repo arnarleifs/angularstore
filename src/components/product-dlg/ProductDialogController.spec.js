@@ -3,10 +3,28 @@
 describe("ProductDialogController", function () {
 	beforeEach(module("project3App"));
 
+	var mockProduct = {
+		id: 1,
+		product: {
+			id: 1,
+			name: "productName",
+			price: "price",
+			quantitySold: "quantitySold",
+			quantityInStock: "quantityInStock",
+			imagePath: "path"
+		}
+	};
+
 	var ProductDialogController, scope;
 
 	var mockDialog = {
 		cancel: function() {
+
+		}
+	};
+
+	var mockRootScope = {
+		$emit: function (eventName, data) {
 
 		}
 	};
@@ -18,7 +36,8 @@ describe("ProductDialogController", function () {
 			ProductDialogController = $controller("ProductDialogController", {
 				$scope: scope,
 				$mdDialog: mockDialog,
-				product: undefined
+				product: undefined,
+				$rootScope: mockRootScope
 			});
 		}));
 
@@ -31,24 +50,26 @@ describe("ProductDialogController", function () {
 	describe("ProductDialogController testing add product", function () {
 		beforeEach(inject(function ($rootScope, $controller) {
 			scope = $rootScope.$new();
+			spyOn(mockDialog, "cancel");
+			spyOn(mockRootScope, "$emit");
 			ProductDialogController = $controller("ProductDialogController", {
 				$scope: scope,
-				product: undefined
+				$mdDialog: mockDialog,
+				product: mockProduct,
+				$rootScope: mockRootScope
 			});
-			spyOn(scope, "addProduct");
 		}));
 
 		it('should call addProduct with the given product', function () {
-			var product = {
-				id: 0,
-				name: "",
-				price: 0,
-				quantitySold: 0,
-				quantityInStock: 0,
-				imagePath: ""
-			};
-			scope.addProduct(product);
-			expect(scope.addProduct).toHaveBeenCalledWith(product);
+			scope.addProduct(mockProduct);
+			expect(mockRootScope.$emit).toHaveBeenCalledWith('addToProductList', mockProduct);
+			expect(mockDialog.cancel).toHaveBeenCalled();
+		});
+
+		it('should call editProduct with the given product', function () {
+			scope.editProduct(mockProduct);
+			expect(mockRootScope.$emit).toHaveBeenCalledWith('editProduct', mockProduct);
+			expect(mockDialog.cancel).toHaveBeenCalled();
 		});
 	});
 });
