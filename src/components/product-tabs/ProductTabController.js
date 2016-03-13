@@ -2,6 +2,7 @@
 
 angular.module("project3App").controller("ProductTabController", ["$rootScope", "$scope", "AppResource", "$mdDialog", "$mdToast", function ($rootScope, $scope, AppResource, $mdDialog, $mdToast) {
 	$scope.productList = [];
+	$scope.error = false;
 
 	$scope.editProduct = function editProduct(evt, product) {
 		$mdDialog.show({
@@ -20,7 +21,7 @@ angular.module("project3App").controller("ProductTabController", ["$rootScope", 
 	AppResource.getSellerProducts(parseInt($scope.sellerId)).success(function (products) {
 		$scope.productList = products;
 	}).error(function () {
-		console.log("error");
+		$scope.error = true;
 	});
 
 	$rootScope.$on('addToProductList', function (data, product) {
@@ -34,6 +35,7 @@ angular.module("project3App").controller("ProductTabController", ["$rootScope", 
 			});
 			$scope.productList.push(product);
 		}).error(function () {
+			$scope.error = true;
 			$mdToast.show({
 				templateUrl: 'components/toasts/add_product_failed_toast.html',
 				parent: angular.element(document.body),
@@ -52,6 +54,7 @@ angular.module("project3App").controller("ProductTabController", ["$rootScope", 
 				position: 'center'
 			});
 		}).error(function () {
+			$scope.error = true;
 			$mdToast.show({
 				templateUrl: 'components/toasts/edit_product_failed_toast.html',
 				parent: angular.element(document.body),
