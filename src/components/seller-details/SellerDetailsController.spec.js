@@ -30,33 +30,39 @@ describe("SellerDetailsController", function(){
 		};
 	};
 
-
 	var mockResourceFalse = {
 		getSellerDetails: function () {
-			return mockHttpPromise(false, null);
+			return mockHttpPromise(false, { });
 		}
 	};
 
 	var mockResourceTrue = {
 		getSellerDetails: function () {
-			return mockHttpPromise(true, null);
+			return mockHttpPromise(true, mockSellerDetails);
 		}
 	};
 
 	var mdDialogMock = {
 		show: function () {
+		}
+	};
+
+	var mockLocation = {
+		path: function (path) {
 
 		}
 	};
 
-	describe("Open dialog failed", function() {
+	describe("AppResource failed", function() {
 		beforeEach(inject(function ($rootScope, $controller) {
 			scope = $rootScope.$new();
 			spyOn(mdDialogMock, "show");
+			spyOn(mockLocation, "path");
 			SellerDetailsController = $controller('SellerDetailsController' , {
 				$scope: scope,
-				AppResoure: mockResourceFalse,
-				$mdDialog: mdDialogMock
+				AppResource: mockResourceFalse,
+				$mdDialog: mdDialogMock,
+				$location: mockLocation
 			});
 		}));
 
@@ -64,9 +70,17 @@ describe("SellerDetailsController", function(){
 			scope.openDialog();
 			expect(mdDialogMock.show).toHaveBeenCalled();
 		});
+
+		it('should return an empty object', function () {
+			expect(scope.seller).toEqual({ });
+		});
+
+		it("should redirect to the path '/' ", function () {
+			expect(mockLocation.path).toHaveBeenCalledWith("/");
+		});
 	});
 
-	describe("Open dialog success", function() {
+	describe("AppResource success", function() {
 		beforeEach(inject(function ($rootScope, $controller) {
 			scope = $rootScope.$new();
 			spyOn(mdDialogMock, "show");
@@ -81,13 +95,10 @@ describe("SellerDetailsController", function(){
 			scope.openDialog();
 			expect(mdDialogMock.show).toHaveBeenCalled();
 		});
+
+		it('should show return the seller with name Bruce', function() {
+			expect(scope.seller.name).toEqual("Bruce Dickinson");
+		});
 	});
-
-
-
-
-
-
-
 
 });
